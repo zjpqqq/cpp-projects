@@ -29,10 +29,12 @@ src/
 ```bash
 sudo apt install qt6-base-dev qt6-multimedia-dev gstreamer1.0-plugins-good
 cd /mnt/c/Users/zjp/Documents/ChatGPT/C++/usb_camera_viewer
-bash run_wsl.sh
+cmake -S . -B ~/.cache/usb_camera_viewer-build -DCMAKE_BUILD_TYPE=Debug
+cmake --build ~/.cache/usb_camera_viewer-build --parallel 2
+~/.cache/usb_camera_viewer-build/usb_camera_viewer
 ```
 
-构建输出放在 Linux 文件系统的 `~/.cache/usb_camera_viewer-build/`。点击“刷新设备”，选择摄像头后点击“打开摄像头”。停止预览会释放摄像头并显示占位画面。
+构建输出放在 Linux 文件系统的 `~/.cache/usb_camera_viewer-build/`。点击“刷新”，选择摄像头后点击“打开”。停止预览会释放摄像头并显示占位画面。
 
 ## Windows 摄像头与 WSL 摄像头的区别
 
