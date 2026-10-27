@@ -1,0 +1,26 @@
+{
+  "checked_at": "2026-10-27",
+  "stage": "github_source_research",
+  "repositories_downloaded": [
+    {
+      "repository": "https://github.com/cyclone367/RadarSimulator",
+      "relative_path": "sources/RadarSimulator",
+      "commit": "dcd7cd0106074cb86c378a448a7cdf5df1dc62d6",
+      "license": "MIT",
+      "modified": false,
+      "compiled_locally": false,
+      "gui_run_locally": false
+    }
+  ],
+  "environment": {
+    "distribution": "Ubuntu-24.04",
+    "wsl_version": "2.7.8.0",
+    "wslg_version": "1.0.73.2",
+    "display": ":0",
+    "wayland_display": "wayland-0",
+    "qt6_base_dev_installed_via_dpkg": false,
+    "qt5_base_dev_installed_via_dpkg": false,
+    "qt6_base_dev_apt_candidate": "6.4.2+dfsg-21.1build5",
+    "qt5_base_dev_apt_candidate": "5.15.13+dfsg-1ubuntu1"
+  }
+}
