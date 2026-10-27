@@ -1,8 +1,26 @@
 # USB 摄像头预览：C++ / Qt 6
 
-本轮只做摄像头画面预览。设备选择、刷新、打开、停止均在一个完整的 `main.cpp` 中，便于从头阅读。
+本轮只做摄像头画面预览，不涉及目标检测。
 
-显示链路：`QCamera → QMediaCaptureSession → QVideoWidget`。不需要 OpenCV、Python、检测模型或 TCP 服务。
+## 代码结构
+
+按职责分成两个类，界面与采集解耦（`include/` 放声明，`src/` 放实现）：
+
+```
+include/
+  MainWindow.h        界面：布局、设备列表、画面显示
+  CameraController.h  采集：QCamera / QVideoSink / 帧看门狗
+src/
+  main.cpp            程序入口：命令行参数与启动
+  MainWindow.cpp
+  CameraController.cpp
+```
+
+- `MainWindow` 不碰 Qt Multimedia，只接收 `CameraController` 的信号
+- `CameraController` 不懂界面，只通过信号上报帧与状态；析构时自动停止采集（RAII）
+- `main()` 只剩参数解析与启动
+
+显示链路：`QCamera → QMediaCaptureSession → QVideoSink → QImage → QLabel`。不需要 OpenCV、Python、检测模型或 TCP 服务。
 
 ## 在 WSL Ubuntu 中运行
 
